@@ -172,13 +172,40 @@
 
         <div class="top-socials">
 
-            
+            <div class="social-menu">
+                <button type="button"
+                        class="social-menu-toggle"
+                        id="socialMenuToggle"
+                        aria-expanded="false"
+                        aria-controls="socialMenuPanel">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    <span>SOCIAL</span>
+                </button>
 
-            
-
-            
-
-            
+                <div class="social-menu-panel"
+                     id="socialMenuPanel"
+                     aria-hidden="true">
+                    <div class="social-menu-title">FOLLOW ASK BAGBIN</div>
+                    <a href="https://www.youtube.com/@ASKBagbinEducationFund" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-youtube"></i><span>YouTube</span>
+                    </a>
+                    <a href="https://www.instagram.com/askbagbineducationfund/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i><span>Instagram</span>
+                    </a>
+                    <a href="https://www.facebook.com/share/14k9UKUR9qG/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i><span>Facebook</span>
+                    </a>
+                    <a href="https://www.tiktok.com/@askbagbineducationfund?_r=1&_t=ZS-99LFa7p1Wuz" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-tiktok"></i><span>TikTok</span>
+                    </a>
+                    <a href="https://x.com/ASKBagbinEdu" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-x-twitter"></i><span>X</span>
+                    </a>
+                    <a href="https://www.linkedin.com/company/ask-bagbin-education-fund/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
 
         </div>
 
@@ -779,8 +806,6 @@
 
 
             <h2>
-                Advancing Educational Equity
-                Across Ghana
             </h2>
 
 
@@ -896,7 +921,7 @@
         <div class="section-heading">
 
             <span class="section-kicker">
-                SCHOLARSHIP
+                SCHOLARSHIP &amp; BENEFICIARIES
             </span>
 
 
@@ -2951,6 +2976,37 @@
 
 <script src="assets/js/image-config.js"></script><script src="assets/js/api-config.js"></script><script src="assets/js/phase4.js"></script>
 <script src="assets/js/page-loader.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.getElementById('socialMenuToggle');
+    const panel = document.getElementById('socialMenuPanel');
+    if (!toggle || !panel) return;
+
+    function closeSocialMenu() {
+        toggle.setAttribute('aria-expanded', 'false');
+        panel.setAttribute('aria-hidden', 'true');
+        panel.classList.remove('is-open');
+    }
+
+    toggle.addEventListener('click', function (event) {
+        event.stopPropagation();
+        const open = panel.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(open));
+        panel.setAttribute('aria-hidden', String(!open));
+    });
+
+    panel.addEventListener('click', function (event) {
+        event.stopPropagation();
+    });
+
+    document.addEventListener('click', closeSocialMenu);
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') closeSocialMenu();
+    });
+});
+</script>
+
 </body>
 
 </html>
