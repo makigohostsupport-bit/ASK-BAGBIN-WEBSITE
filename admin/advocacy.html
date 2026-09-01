@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0756a0">
+<title>Advocacy & Community Engagements | ASK Bagbin Education Fund</title>
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+<aside class="sidebar" id="sidebar">
+<div class="sidebar-header">
+<div class="logo"><span class="logo-icon">AB</span><div><h2>ASK BAGBIN</h2><p>EDUCATION FUND · ADMIN</p></div></div>
+<button class="close-sidebar" id="closeSidebar" aria-label="Close menu">×</button>
+</div>
+<nav class="sidebar-nav" aria-label="Admin navigation">
+<div class="nav-section-label">Overview</div>
+<a href="dashboard.html" class="nav-link"><span>⌂</span>Dashboard</a>
+<a href="beneficiaries.html" class="nav-link"><span>♙</span>Beneficiaries</a>
+<a href="scholarship-applications.html" class="nav-link"><span>🎓</span>Scholarship Applications</a>
+<a href="projects.html" class="nav-link"><span>▣</span>Projects</a>
+<a href="advocacy.html" class="nav-link active"><span>📣</span>Advocacy &amp; Community</a>
+<div class="nav-section-label">Content</div>
+<a href="news.html" class="nav-link"><span>◉</span>News &amp; Updates</a>
+<a href="partnerships.html" class="nav-link"><span>🤝</span>Partnerships</a>
+<a href="messages.html" class="nav-link"><span>✉</span>Messages</a>
+<div class="nav-divider"></div>
+<div class="nav-section-label">Administration</div>
+<a href="users.html" class="nav-link"><span>♟</span>Admin Users</a>
+<a href="settings.html" class="nav-link"><span>⚙</span>Settings</a>
+</nav>
+<div class="sidebar-user"><div class="user-avatar">A</div><div class="user-info"><strong>Administrator</strong><span>Super Admin</span></div></div>
+</aside>
+<main class="main-content">
+<header class="topbar">
+<div class="topbar-left"><button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button><div><h1>Advocacy &amp; Community Engagements</h1><p>Plan, publish and monitor education advocacy activities.</p></div></div>
+<div class="topbar-right"><a href="../frontend/pages/advocacy.html" target="_blank" class="view-site-btn">↗ View Public Page</a><button class="notification-btn" aria-label="Notifications">🔔<span class="notification-dot"></span></button><div class="topbar-profile"><div class="profile-avatar">A</div><div class="profile-details"><strong>Administrator</strong><span>Super Admin</span></div></div></div>
+</header>
+<section class="dashboard-content">
+<div class="advocacy-hero">
+<div><span class="card-label">ADVOCACY &amp; COMMUNITY ENGAGEMENTS</span><h2>Turn education advocacy into measurable community impact.</h2><p>Create campaigns, organize community engagements, record outcomes and keep the public informed about the Fund’s work.</p></div>
+<div class="advocacy-hero-icon">📣</div>
+</div>
+<div class="advocacy-stats">
+<div class="advocacy-stat"><span>ACTIVE CAMPAIGNS</span><strong id="advActiveCount">0</strong></div>
+<div class="advocacy-stat"><span>COMMUNITY EVENTS</span><strong id="advEventCount">0</strong></div>
+<div class="advocacy-stat"><span>PEOPLE REACHED</span><strong id="advReachCount">0</strong></div>
+<div class="advocacy-stat"><span>COMPLETED</span><strong id="advCompletedCount">0</strong></div>
+</div>
+<div class="advocacy-layout">
+<div class="dashboard-card">
+<div class="card-header"><div><h2>Add Advocacy Activity</h2><p>Create a campaign, outreach programme or community engagement.</p></div></div>
+<form id="advocacyForm" class="advocacy-form">
+<div class="form-grid">
+<label>Activity title<input id="advTitle" required placeholder="e.g. Girls Education Community Outreach"></label>
+<label>Activity type<select id="advType"><option>Campaign</option><option>Community Engagement</option><option>School Outreach</option><option>Public Awareness</option><option>Stakeholder Forum</option></select></label>
+<label>Location<input id="advLocation" placeholder="Community / District / School"></label>
+<label>Date<input id="advDate" type="date"></label>
+<label>Target audience<input id="advAudience" placeholder="Parents, students, teachers..." ></label>
+<label>People reached<input id="advReach" type="number" min="0" value="0"></label>
+</div>
+<label class="full-field">Description<textarea id="advDescription" rows="4" placeholder="Describe the advocacy objective, activities and expected outcome..."></textarea></label>
+<div class="form-actions"><button type="submit" class="primary-admin-btn">+ Save Activity</button><button type="reset" class="secondary-admin-btn">Clear</button></div>
+<p id="advFormMessage" class="form-message"></p>
+</form>
+</div>
+<div class="dashboard-card">
+<div class="card-header"><div><h2>Advocacy Management</h2><p>Track current and completed community activities.</p></div><button id="clearAdvocacy" class="text-btn">Clear All</button></div>
+<div class="adv-table-wrap"><table class="adv-table"><thead><tr><th>Activity</th><th>Type</th><th>Location</th><th>Date</th><th>Reach</th><th>Status</th><th>Action</th></tr></thead><tbody id="advocacyBody"></tbody></table></div>
+</div>
+</div>
+<div class="dashboard-card advocacy-info-card"><div><h2>Community Engagement Focus Areas</h2><p>Use this section to organize activities around the Fund’s education mission.</p></div><div class="focus-grid"><div><strong>📚 Education Access</strong><span>Promote equal access to quality education and learning resources.</span></div><div><strong>👧 Girls' Education</strong><span>Support awareness and participation in education for girls.</span></div><div><strong>🏫 School Support</strong><span>Engage schools and communities around infrastructure and learning needs.</span></div><div><strong>🤝 Stakeholder Engagement</strong><span>Build dialogue with parents, leaders, institutions and partners.</span></div></div></div>
+<footer class="admin-footer"><div><strong>ASK Bagbin Education Fund</strong><span> • Administration Portal</span></div><span>© 2026 ASK Bagbin Education Fund</span></footer>
+</section>
+</main></div>
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

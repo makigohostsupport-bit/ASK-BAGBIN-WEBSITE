@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0756a0">
+<title>Settings | ASK Bagbin Education Fund</title>
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="logo"><span class="logo-icon">AB</span><div><h2>ASK BAGBIN</h2><p>EDUCATION FUND · ADMIN</p></div></div>
+    <button class="close-sidebar" id="closeSidebar">×</button>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Overview</div>
+    <a href="dashboard.html" class="nav-link"><span>⌂</span>Dashboard</a>
+    <a href="beneficiaries.html" class="nav-link"><span>♙</span>Beneficiaries</a>
+    <a href="scholarship-applications.html" class="nav-link"><span>🎓</span>Scholarship Applications</a>
+    <a href="projects.html" class="nav-link"><span>▣</span>Projects</a>
+    <div class="nav-section-label">Content</div>
+    <a href="news.html" class="nav-link"><span>◉</span>News &amp; Updates</a>
+    <a href="partnerships.html" class="nav-link"><span>🤝</span>Partnerships</a>
+    <a href="messages.html" class="nav-link"><span>✉</span>Messages</a>
+    <div class="nav-divider"></div>
+    <div class="nav-section-label">Administration</div>
+    <a href="users.html" class="nav-link"><span>♟</span>Admin Users</a>
+    <a href="settings.html" class="nav-link active"><span>⚙</span>Settings</a>
+  </nav>
+  <div class="sidebar-user"><div class="user-avatar">A</div><div class="user-info"><strong>Administrator</strong><span>Super Admin</span></div></div>
+</aside>
+<main class="main-content">
+<header class="topbar">
+  <div class="topbar-left"><button class="menu-btn" id="menuBtn">☰</button><div><span class="breadcrumb">ADMINISTRATION / SETTINGS</span><h1>Settings</h1><p>Control your website, security and brand identity.</p></div></div>
+  <div class="topbar-right"><a href="../frontend/index.html" target="_blank" class="view-site-btn">↗ View Website</a><button class="notification-btn">🔔<span class="notification-dot"></span></button><div class="topbar-profile"><div class="profile-avatar">A</div><div class="profile-details"><strong>Administrator</strong><span>Super Admin</span></div></div></div>
+</header>
+<section class="dashboard-content settings-page">
+  <div class="settings-hero"><div><span class="card-label">CONTROL CENTRE</span><h2>Website &amp; Security Settings</h2><p>Manage the public website status, administrator password and the ASK Bagbin Education Fund logo.</p></div><div class="site-state" id="siteStateBadge"><span></span><strong>Website Open</strong></div></div>
+  <div class="settings-grid">
+    <div class="dashboard-card settings-card">
+      <div class="card-header"><div><span class="card-label">WEBSITE CONTROL</span><h2>Open / Close Website</h2><p>Temporarily close the public website when maintenance is required.</p></div></div>
+      <div class="control-panel"><div class="control-icon green">●</div><div class="control-copy"><strong id="websiteStatusText">Website is currently open</strong><span id="websiteStatusDescription">Visitors can access the public website normally.</span></div><button class="toggle-switch on" id="websiteToggle" type="button" aria-label="Toggle website status"><span></span></button></div>
+      <div class="settings-actions"><a href="../frontend/index.html" target="_blank" class="settings-btn secondary">↗ Look Inside Site</a><button class="settings-btn primary" id="saveSiteStatus">Save Website Status</button></div>
+      <div class="notice-box" id="siteNotice">Closing the website stores the maintenance status in the secure server database.</div>
+    </div>
+    <div class="dashboard-card settings-card">
+      <div class="card-header"><div><span class="card-label">SECURITY</span><h2>Change Administrator Password</h2><p>Update the administrator password stored securely on the server.</p></div></div>
+      <form id="passwordForm" class="settings-form">
+        <label>Current Password<input type="password" id="currentPassword" required autocomplete="current-password"></label>
+        <label>New Password<input type="password" id="newPassword" minlength="8" required autocomplete="new-password"></label>
+        <label>Confirm New Password<input type="password" id="confirmPassword" minlength="8" required autocomplete="new-password"></label>
+        <button class="settings-btn primary" type="submit">Change Password</button>
+        <div class="form-message" id="passwordMessage"></div>
+      </form>
+      <div class="notice-box warning">Passwords are hashed on the server and are never returned to the browser.</div>
+    </div>
+    <div class="dashboard-card settings-card"><div class="card-header"><div><span class="card-label">ADMIN PROFILE</span><h2>Account Details</h2><p>Update the name and email associated with your administrator account.</p></div></div><form id="profileForm" class="settings-form"><label>Full Name<input id="profileName" required></label><label>Email Address<input id="profileEmail" type="email" required></label><button class="settings-btn primary" type="submit">Save Profile</button><div class="form-message" id="profileMessage"></div></form></div><div class="dashboard-card settings-card brand-card">
+      <div class="card-header"><div><span class="card-label">BRAND IDENTITY</span><h2>Website Logo</h2><p>Preview the current logo and select a replacement image.</p></div></div>
+      <div class="logo-manager"><div class="logo-preview"><img id="logoPreview" src="../frontend/assets/images/logo/logo.png" alt="ASK Bagbin Education Fund Logo"></div><div class="logo-copy"><strong>ASK Bagbin Education Fund</strong><span>Recommended: PNG with transparent background.</span><label class="upload-label">Choose New Logo<input type="file" id="logoInput" accept="image/png,image/jpeg,image/webp"></label><button class="settings-btn primary" id="saveLogo" type="button">Save Logo</button><button class="settings-btn danger-outline" id="resetLogo" type="button">Reset to Original</button><div class="form-message" id="logoMessage"></div></div></div>
+    </div>
+    <div class="dashboard-card settings-card">
+      <div class="card-header"><div><span class="card-label">SITE PREVIEW</span><h2>Look Inside Your Website</h2><p>Open the public website in a new tab and review it as visitors see it.</p></div></div>
+      <div class="preview-panel"><div class="preview-mini"><img src="../frontend/assets/images/logo/logo.png" alt="Site logo"><div><strong>ASK BAGBIN</strong><span>Advancing Equity Through Education</span></div></div><div class="preview-links"><a href="../frontend/index.html" target="_blank">Open Homepage ↗</a><a href="../frontend/pages/scholarship.html" target="_blank">Open Scholarship Page ↗</a><a href="../frontend/pages/projects.html" target="_blank">Open Projects ↗</a></div></div>
+    </div>
+  </div>
+</section>
+</main>
+</div><div class="sidebar-overlay" id="sidebarOverlay"></div>
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/admin.js"></script><script>
+(async()=>{try{const d=await apiFetch('/auth/profile');document.getElementById('profileName').value=d.admin.name||'';document.getElementById('profileEmail').value=d.admin.email||'';}catch(e){}})();
+document.getElementById('profileForm')?.addEventListener('submit',async e=>{e.preventDefault();const m=document.getElementById('profileMessage');try{const d=await apiFetch('/auth/profile',{method:'PUT',body:JSON.stringify({name:profileName.value,email:profileEmail.value})});localStorage.setItem('askBagbinAdmin',JSON.stringify(d.admin));renderAdminIdentity();m.textContent=d.message;m.className='form-message success';}catch(err){m.textContent=err.message;m.className='form-message error';}});
+document.getElementById('passwordForm')?.addEventListener('submit',async e=>{e.preventDefault();const m=document.getElementById('passwordMessage');if(newPassword.value!==confirmPassword.value){m.textContent='New passwords do not match.';m.className='form-message error';return;}try{const d=await apiFetch('/auth/change-password',{method:'POST',body:JSON.stringify({currentPassword:currentPassword.value,newPassword:newPassword.value})});m.textContent=d.message;m.className='form-message success';e.target.reset();}catch(err){m.textContent=err.message;m.className='form-message error';}});
+let currentSettings={};
+(async()=>{try{currentSettings=await apiFetch('/admin/settings');const open=!!currentSettings.website_open;const toggle=document.getElementById('websiteToggle');toggle?.classList.toggle('on',open);document.getElementById('websiteStatusText').textContent=open?'Website is currently open':'Website is currently closed';document.getElementById('websiteStatusDescription').textContent=open?'Visitors can access the public website normally.':'Visitors receive the maintenance message.';if(currentSettings.logo_url)document.getElementById('logoPreview').src=currentSettings.logo_url;}catch(e){}})();
+document.getElementById('websiteToggle')?.addEventListener('click',e=>e.currentTarget.classList.toggle('on'));
+document.getElementById('saveSiteStatus')?.addEventListener('click',async()=>{const open=document.getElementById('websiteToggle').classList.contains('on');try{await apiFetch('/admin/settings',{method:'PUT',body:JSON.stringify({websiteOpen:open,maintenanceMessage:'Our website is temporarily unavailable. Please check back soon.'})});document.getElementById('websiteStatusText').textContent=open?'Website is currently open':'Website is currently closed';document.getElementById('websiteStatusDescription').textContent=open?'Visitors can access the public website normally.':'Visitors receive the maintenance message.';alert('Website status saved.');}catch(e){alert(e.message);}});
+document.getElementById('logoInput')?.addEventListener('change',e=>{const f=e.target.files[0];if(f)document.getElementById('logoPreview').src=URL.createObjectURL(f);});
+document.getElementById('saveLogo')?.addEventListener('click',async()=>{const f=document.getElementById('logoInput').files[0],m=document.getElementById('logoMessage');if(!f){m.textContent='Choose an image first.';m.className='form-message error';return;}try{const fd=new FormData();fd.append('file',f);const up=await apiFetch('/uploads/image',{method:'POST',body:fd});await apiFetch('/admin/settings',{method:'PUT',body:JSON.stringify({websiteOpen:document.getElementById('websiteToggle').classList.contains('on'),logoUrl:up.url})});m.textContent='Logo saved successfully.';m.className='form-message success';}catch(e){m.textContent=e.message;m.className='form-message error';}});
+document.getElementById('resetLogo')?.addEventListener('click',async()=>{try{await apiFetch('/admin/settings',{method:'PUT',body:JSON.stringify({websiteOpen:document.getElementById('websiteToggle').classList.contains('on'),logoUrl:'/frontend/assets/images/logo/logo.png'})});document.getElementById('logoPreview').src='../frontend/assets/images/logo/logo.png';document.getElementById('logoMessage').textContent='Original logo restored.';document.getElementById('logoMessage').className='form-message success';}catch(e){alert(e.message);}});
+</script>
+</body>
+</html>

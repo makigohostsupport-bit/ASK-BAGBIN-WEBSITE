@@ -1,0 +1,28 @@
+ASK BAGBIN WEBSITE
+
+PROJECT STRUCTURE
+
+frontend/
+    Public website
+
+admin/
+    Administration dashboard
+
+backend/
+    API, database, authentication and server logic
+
+shared/
+    Shared configuration and resources
+
+_backup_before_cleanup/
+    Original duplicate or reorganized files
+    Review before permanently deleting.
+
+PHASE 6
+- frontend/404.html - dedicated not-found page
+- frontend/maintenance.html - server-controlled maintenance page
+- backend/routes/admin.js - dashboard notifications and chart data endpoints
+- Dockerfile - production Node container
+- docker-compose.yml - Node + MySQL deployment stack
+- .env.production.example - production environment template
+- PHASE6-UPGRADES.md - Phase 6 deployment and upgrade notes

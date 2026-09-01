@@ -1,0 +1,149 @@
+/* =========================================================
+   ASK BAGBIN EDUCATION FUND
+   ANIMATION STYLES
+========================================================= */
+
+
+/* Hero content animation */
+
+.hero-slide.active .hero-small-title {
+
+    animation:
+        heroFadeUp 0.8s ease forwards;
+
+}
+
+.hero-slide.active h1 {
+
+    animation:
+        heroFadeUp 0.9s 0.1s ease both;
+
+}
+
+.hero-slide.active p {
+
+    animation:
+        heroFadeUp 0.9s 0.2s ease both;
+
+}
+
+.hero-slide.active .hero-buttons {
+
+    animation:
+        heroFadeUp 0.9s 0.3s ease both;
+
+}
+
+
+@keyframes heroFadeUp {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* Floating animation */
+
+.float-animation {
+
+    animation:
+        floating 4s ease-in-out infinite;
+
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-10px);
+
+    }
+
+}
+
+
+/* Pulse */
+
+.pulse-animation {
+
+    animation:
+        pulseAnimation 2s infinite;
+
+}
+
+@keyframes pulseAnimation {
+
+    0% {
+
+        box-shadow:
+            0 0 0 0 rgba(8,116,67,0.35);
+
+    }
+
+    70% {
+
+        box-shadow:
+            0 0 0 12px rgba(8,116,67,0);
+
+    }
+
+    100% {
+
+        box-shadow:
+            0 0 0 0 rgba(8,116,67,0);
+
+    }
+
+}
+
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        scroll-behavior:
+            auto !important;
+
+        transition-duration:
+            0.01ms !important;
+
+    }
+
+}

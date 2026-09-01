@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Login | ASK Bagbin Education Fund</title>
+
+<link rel="stylesheet" href="assets/css/admin.css">
+
+<style>
+body{
+    min-height:100vh;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg,#edf5fc,#f3faf6);
+    padding:24px
+}
+
+.login-wrap{
+    width:min(460px,100%)
+}
+
+.login-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:34px;
+    box-shadow:var(--shadow-lg)
+}
+
+.login-brand{
+    text-align:center;
+    margin-bottom:28px
+}
+
+.login-brand img{
+    width:86px;
+    height:86px;
+    object-fit:contain;
+    background:#fff;
+    border-radius:16px;
+    padding:7px;
+    box-shadow:0 8px 24px rgba(6,59,112,.12)
+}
+
+.login-brand h1{
+    font-family:"Montserrat",sans-serif;
+    color:var(--blue-dark);
+    font-size:22px;
+    margin-top:14px
+}
+
+.login-brand p{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:5px
+}
+
+.login-form{
+    display:grid;
+    gap:16px
+}
+
+.login-form label{
+    font-size:13px;
+    font-weight:700;
+    color:var(--text)
+}
+
+.login-form input{
+    width:100%;
+    margin-top:7px;
+    padding:13px 14px;
+    border:1px solid #d7dee7;
+    border-radius:10px;
+    outline:none;
+    font-size:14px
+}
+
+.login-form input:focus{
+    border-color:var(--blue);
+    box-shadow:0 0 0 3px rgba(7,86,160,.10)
+}
+
+.login-btn{
+    border:0;
+    border-radius:10px;
+    padding:14px;
+    background:linear-gradient(90deg,var(--blue-dark),var(--green));
+    color:#fff;
+    font-weight:800;
+    font-size:14px;
+    cursor:pointer
+}
+
+.login-btn:disabled{
+    opacity:.65;
+    cursor:not-allowed
+}
+
+.login-message{
+    display:none;
+    padding:11px 13px;
+    border-radius:9px;
+    font-size:12px;
+    margin-bottom:14px
+}
+
+.login-message.show{
+    display:block
+}
+
+.login-message.error{
+    background:#fff0f0;
+    color:#a52828
+}
+
+.login-message.success{
+    background:#eefaf2;
+    color:#18733b
+}
+
+.login-note{
+    text-align:center;
+    color:var(--muted);
+    font-size:11px;
+    margin-top:18px
+}
+</style>
+</head>
+
+<body>
+
+<main class="login-wrap">
+
+<section class="login-card">
+
+<div class="login-brand">
+
+<img
+    src="../frontend/assets/images/logo/logo.png"
+    alt="ASK Bagbin Education Fund logo"
+>
+
+<h1>ASK Bagbin Education Fund</h1>
+
+<p>Secure Administration Portal</p>
+
+</div>
+
+
+<div id="loginMessage" class="login-message"></div>
+
+
+<form class="login-form" id="loginForm">
+
+<label>
+    Email address
+
+    <input
+        type="email"
+        id="email"
+        autocomplete="username"
+        placeholder="admin@example.com"
+        required
+    >
+</label>
+
+
+<label>
+    Password
+
+    <input
+        type="password"
+        id="password"
+        autocomplete="current-password"
+        placeholder="Enter your password"
+        required
+    >
+</label>
+
+
+<button
+    class="login-btn"
+    id="loginBtn"
+    type="submit"
+>
+    Sign In to Dashboard
+</button>
+
+</form>
+
+
+<p class="login-note">
+    Authorized administrators only.
+</p>
+
+</section>
+
+</main>
+
+
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/login.js"></script>
+
+</body>
+</html>

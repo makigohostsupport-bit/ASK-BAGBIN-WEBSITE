@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+
+uploads/
+*.sql
+
+npm-debug.log*
+.DS_Store
+
+.vscode/

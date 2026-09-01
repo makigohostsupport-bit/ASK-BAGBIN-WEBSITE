@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0756a0">
+    <title>Admin Dashboard | ASK Bagbin Education Fund</title>
+    <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+<div class="admin-layout">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <img class="admin-brand-logo" src="../frontend/assets/images/logo/logo.png" alt="ASK Bagbin Education Fund logo">
+                <div>
+                    <h2>ASK BAGBIN</h2>
+                    <p>EDUCATION FUND · ADMIN</p>
+                </div>
+            </div>
+            <button class="close-sidebar" id="closeSidebar" aria-label="Close menu">×</button>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Admin navigation">
+            <div class="nav-section-label">Overview</div>
+
+            <a href="dashboard.html" class="nav-link active"><span>⌂</span>Dashboard</a>
+            <a href="beneficiaries.html" class="nav-link"><span>♙</span>Beneficiaries</a>
+            <a href="scholarship-applications.html" class="nav-link"><span>🎓</span>Scholarship Applications</a>
+            <a href="projects.html" class="nav-link"><span>▣</span>Projects</a>
+            <a href="advocacy.html" class="nav-link"><span>📣</span>Advocacy &amp; Community</a>
+
+            <div class="nav-section-label">Content</div>
+            <a href="news.html" class="nav-link"><span>◉</span>News &amp; Updates</a>
+            <a href="partnerships.html" class="nav-link"><span>🤝</span>Partnerships</a>
+            <a href="messages.html" class="nav-link"><span>✉</span>Messages</a>
+
+            <div class="nav-divider"></div>
+
+            <div class="nav-section-label">Administration</div>
+            <a href="users.html" class="nav-link"><span>♟</span>Admin Users</a>
+            <a href="settings.html" class="nav-link"><span>⚙</span>Settings</a>
+        </nav>
+
+        <div class="sidebar-user">
+            <div class="user-avatar">A</div>
+            <div class="user-info">
+                <strong>Administrator</strong>
+                <span>Super Admin</span>
+            </div>
+            <button type="button" class="logout-admin-btn" onclick="logoutAdmin()">Logout</button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+                <div class="admin-topbar-title"><img class="topbar-brand-logo" src="../frontend/assets/images/logo/logo.png" alt="ASK Bagbin Education Fund logo"><div><h1>Dashboard</h1>
+                    <p>ASK Bagbin Education Fund management centre</p></div></div>
+            </div>
+
+            <div class="topbar-right">
+                <a href="../frontend/index.html" target="_blank" class="view-site-btn">↗ View Website</a>
+                <button class="notification-btn" aria-label="Notifications">
+                    🔔<span class="notification-dot"></span>
+                </button>
+                <div class="topbar-profile">
+                    <div class="profile-avatar">A</div>
+                    <div class="profile-details">
+                        <strong>Administrator</strong>
+                        <span>Super Admin</span>
+                    </div>
+                </div>
+            </div>
+        <span id="dataSourceStatus" class="status-badge">Checking data source…</span></header>
+
+        <section class="dashboard-content">
+
+            <div class="welcome-banner">
+                <div>
+                    <h2>Welcome back, Administrator 👋</h2>
+                    <p>Manage beneficiaries, scholarships, projects, advocacy, news, partnerships and website activity from one place.</p>
+                </div>
+                <div class="welcome-chip">● ADMIN PANEL ONLINE</div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon beneficiaries">♙</div>
+                    <div class="stat-info">
+                        <span>Total Beneficiaries</span>
+                        <h2 id="beneficiariesCount">0</h2>
+                        <small>Registered beneficiaries</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon projects">▣</div>
+                    <div class="stat-info">
+                        <span>Active Projects</span>
+                        <h2 id="projectsCount">0</h2>
+                        <small>Currently running</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon news">◉</div>
+                    <div class="stat-info">
+                        <span>News &amp; Updates</span>
+                        <h2 id="newsCount">0</h2>
+                        <small>Published updates</small>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon scholarships">🎓</div>
+                    <div class="stat-info"><span>Pending Scholarships</span><h2 id="scholarshipCount">0</h2><small>Applications awaiting review</small></div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon partnerships">🤝</div>
+                    <div class="stat-info"><span>New Partnerships</span><h2 id="partnershipCount">0</h2><small>Requests awaiting review</small></div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon volunteers">👤</div>
+                    <div class="stat-info"><span>New Volunteers</span><h2 id="volunteerCount">0</h2><small>Volunteer submissions</small></div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon messages">✉</div>
+                    <div class="stat-info">
+                        <span>New Messages</span>
+                        <h2 id="messagesCount">0</h2>
+                        <small>Awaiting review</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card activity-card">
+                    <div class="card-header">
+                        <div>
+                            <h2>Recent Activity</h2>
+                            <p>Latest activity on the platform</p>
+                        </div>
+                        <a class="text-btn" href="messages.html">View All</a>
+                    </div>
+
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon">+</div>
+                            <div class="activity-content">
+                                <strong>Admin system created</strong>
+                                <span>The new administration panel is ready.</span>
+                            </div>
+                            <time>Now</time>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon">✓</div>
+                            <div class="activity-content">
+                                <strong>Dashboard initialized</strong>
+                                <span>Your management system is being set up.</span>
+                            </div>
+                            <time>Today</time>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-card quick-actions">
+                    <div class="card-header">
+                        <div>
+                            <h2>Quick Actions</h2>
+                            <p>Manage your website quickly</p>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions-grid">
+                        <a href="beneficiaries.html" class="quick-action">
+                            <span>+</span>
+                            <strong>Add Beneficiary</strong>
+                        </a>
+                        <a href="projects.html" class="quick-action">
+                            <span>+</span>
+                            <strong>Add Project</strong>
+                        </a>
+                        <a href="news.html" class="quick-action">
+                            <span>+</span>
+                            <strong>Publish News</strong>
+                        </a>
+                        <a href="partnerships.html" class="quick-action">
+                            <span>+</span>
+                            <strong>View Partnerships</strong>
+                        </a>
+                        <a href="advocacy.html" class="quick-action">
+                            <span>📣</span>
+                            <strong>Manage Advocacy</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-insights">
+                <div class="dashboard-card insight-card">
+                    <div class="card-header"><div><h2>Platform Activity</h2><p>Current volume across public submissions and content.</p></div></div>
+                    <div class="chart-bars" id="platformChart"><div class="empty-state">Loading activity data…</div></div>
+                </div>
+                <div class="dashboard-card insight-card">
+                    <div class="card-header"><div><h2>Application Pipeline</h2><p>Scholarship application status.</p></div></div>
+                    <div class="mini-donut" id="scholarshipChart"><div class="empty-state">Loading pipeline…</div></div>
+                </div>
+            </div>
+
+            <div class="dashboard-card system-card">
+                <div class="card-header">
+                    <div>
+                        <h2>System Status</h2>
+                        <p>Overview of your administration environment</p>
+                    </div>
+                    <span class="status-badge">● System Online</span>
+                </div>
+
+                <div class="system-status-grid">
+                    <div class="system-status">
+                        <span>Website</span>
+                        <strong>Online</strong>
+                    </div>
+                    <div class="system-status">
+                        <span>Admin Panel</span>
+                        <strong>Active</strong>
+                    </div>
+                    <div class="system-status">
+                        <span>Backend</span>
+                        <strong id="backendStatus">Not Connected</strong>
+                    </div>
+                    <div class="system-status">
+                        <span>Database</span>
+                        <strong id="databaseStatus">Not Connected</strong>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+</div>
+<div class="notification-panel" id="notificationPanel" hidden aria-live="polite">
+  <header><strong>Notifications</strong><button type="button" id="closeNotifications" aria-label="Close notifications">×</button></header>
+  <div id="notificationList"><div class="empty-state">Loading…</div></div>
+</div>
+<script src="assets/js/api-config.js"></script>
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

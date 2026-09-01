@@ -1,0 +1,23 @@
+const express=require('express');
+const multer=require('multer');
+const path=require('path');
+const fs=require('fs');
+const crypto=require('crypto');
+const {requireAuth}=require('../middleware/auth');
+const {rateLimit}=require('../middleware/security');
+const router=express.Router();
+const root=path.resolve(__dirname,'../..');
+const imageDir=path.join(root,'backend','uploads','images');
+const documentDir=path.join(root,'backend','uploads','private-documents');
+fs.mkdirSync(imageDir,{recursive:true});fs.mkdirSync(documentDir,{recursive:true});
+const imageAllowed=new Set(['image/png','image/jpeg','image/webp']);
+const documentAllowed=new Set(['application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document']);
+function storageFor(dir){return multer.diskStorage({destination:dir,filename:(req,file,cb)=>{const ext=path.extname(file.originalname).toLowerCase();cb(null,`${Date.now()}-${crypto.randomBytes(10).toString('hex')}${ext}`);}})}
+const imageUpload=multer({storage:storageFor(imageDir),limits:{fileSize:5*1024*1024},fileFilter:(req,file,cb)=>cb(null,imageAllowed.has(file.mimetype))});
+const documentUpload=multer({storage:storageFor(documentDir),limits:{fileSize:10*1024*1024},fileFilter:(req,file,cb)=>cb(null,documentAllowed.has(file.mimetype))});
+const publicDocumentLimit=rateLimit({windowMs:60000,max:5,keyPrefix:'public-document'});
+router.post('/image',requireAuth,imageUpload.single('file'),(req,res)=>{if(!req.file)return res.status(400).json({message:'Please upload a PNG, JPG or WebP image up to 5MB.'});res.status(201).json({url:`/uploads/images/${req.file.filename}`,filename:req.file.filename,size:req.file.size});});
+router.post('/document',requireAuth,documentUpload.single('file'),(req,res)=>{if(!req.file)return res.status(400).json({message:'Please upload a PDF, DOC or DOCX document up to 10MB.'});res.status(201).json({url:`/api/uploads/private-document/${req.file.filename}`,filename:req.file.filename,size:req.file.size});});
+router.post('/public-document',publicDocumentLimit,documentUpload.single('file'),(req,res)=>{if(!req.file)return res.status(400).json({message:'Please upload a PDF, DOC or DOCX document up to 10MB.'});res.status(201).json({url:`/api/uploads/private-document/${req.file.filename}`,filename:req.file.filename,size:req.file.size});});
+router.get('/private-document/:filename',requireAuth,(req,res)=>{const name=path.basename(req.params.filename);const file=path.join(documentDir,name);if(!fs.existsSync(file))return res.status(404).json({message:'Document not found.'});res.download(file,name);});
+module.exports=router;

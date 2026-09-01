@@ -1,0 +1,24 @@
+{
+  "name": "ask-bagbin-education-fund",
+  "version": "3.0.0",
+  "description": "ASK Bagbin Education Fund professional website, scholarship workflow, CMS and administration backend",
+  "main": "backend/src/server.js",
+  "scripts": {
+    "start": "node backend/src/server.js",
+    "dev": "node --watch backend/src/server.js",
+    "check": "node --check backend/src/server.js && node --check backend/routes/public.js && node --check backend/routes/admin.js && node --check backend/routes/uploads.js && node --check admin/assets/js/admin.js && node --check admin/assets/js/resource-admin.js",
+    "db:seed-admin": "node backend/database/seed-admin.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.2",
+    "mysql2": "^3.14.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
